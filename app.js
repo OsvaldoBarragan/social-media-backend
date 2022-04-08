@@ -38,8 +38,8 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-mongoose.connection.once('open', function() {
-  console.log('connection has been made');
-}).on('error', function(error) {
-  console.log('error is: ', error);
-});
+// mongoose.connection.once('open', function() {
+//   console.log('connection has been made');
+// }).on('error', function(error) {
+//   console.log('error is: ', error);
+// });
