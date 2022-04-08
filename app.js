@@ -10,7 +10,7 @@ const db = require('./config/db')
 
 // // define server and client ports
 // // used for cors and local port declaration
-const serverDevPort = 3000
+const serverDevPort = 4000
 const clientDevPort = 7165
 
 // mongoose.connect('mongodb://127.0.0.1/test', { useNewUrlParser: true });
