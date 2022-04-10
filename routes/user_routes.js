@@ -9,6 +9,16 @@ const User = require('./../models/user')
 
 const router = express.Router()
 
+router.get('/users', (req, res, next) => {
+
+  User.find()
+    .then(users => {
+      return users.map(user => user.toObject())
+    })
+    .then(users => res.status(200).json({ users: users }))
+    .catch(next)
+})
+
 router.post('/sign-up', (req, res, next) => {
   Promise.resolve(req.body.credentials)
     .then(credentials => {
