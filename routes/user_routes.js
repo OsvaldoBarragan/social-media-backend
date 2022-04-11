@@ -1,11 +1,11 @@
 const express = require('express')
-// const crypto = require('crypto')
+const crypto = require('crypto')
 const bcrypt = require('bcryptjs')
 const bcryptSaltRounds = 10
 
 const errors = require('./../lib/custom_errors')
 const BadParamsError = errors.BadParamsError
-// const BadCredentialsError = errors.BadCredentialsError
+const BadCredentialsError = errors.BadCredentialsError
 const User = require('./../models/user')
 
 // const requireToken = passport.authenticate('bearer', { session: false })
