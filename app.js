@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors')
 
 const exampleRoutes = require('./routes/example_routes')
-// const userRoutes = require('./routes/user_routes')
+const userRoutes = require('./routes/user_routes')
 
 // // require database configuration logic
 // // `db` will be the actual Mongo URI as a string
@@ -34,7 +34,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.use(exampleRoutes)
-// app.use(userRoutes)
+app.use(userRoutes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
