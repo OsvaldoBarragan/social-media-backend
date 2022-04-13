@@ -2,6 +2,8 @@ const express = require('express')
 const crypto = require('crypto')
 const bcrypt = require('bcryptjs')
 const bcryptSaltRounds = 10
+const passport = require('passport')
+const requireToken = passport.authenticate('bearer', { session: false })
 
 const errors = require('./../lib/custom_errors')
 const BadParamsError = errors.BadParamsError
@@ -70,6 +72,14 @@ router.post('/sign-in', (req, res, next) => {
     .then(user => {
       res.status(201).json({ user: user.toObject() })
     })
+    .catch(next)
+})
+
+router.delete('/sign-out', requireToken, (req, res, next) => {
+  req.user.token = null
+
+  req.user.save()
+    .then(() => res.sendStatus(204))
     .catch(next)
 })
 

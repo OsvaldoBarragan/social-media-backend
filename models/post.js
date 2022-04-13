@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 
 const postSchema = new mongoose.Schema({
-  imgSource: {
+  imageSource: {
+    type: String,
+    required: true
+  },
+  title: {
     type: String,
     required: true
   },
@@ -10,8 +14,13 @@ const postSchema = new mongoose.Schema({
     required: true
   },
   hashtags: [String],
-  likes: {
-    type: Number,
+  numOfLikes: 0,
+  usersWhoLiked: [String],
+  owner: {
+    // the reference type
+    type: mongoose.Schema.Types.ObjectId,
+    // when the owner is populated, use the User model
+    ref: 'User',
     required: true
   }
 }, {
